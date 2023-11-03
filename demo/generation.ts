@@ -1,4 +1,6 @@
+// deno run --allow-run --allow-read --allow-write --allow-env --allow-sys "https://deno.land/x/shenron/demo/generation.ts?source"
 // deno run --allow-run --allow-read --allow-write --allow-env --allow-sys ./demo/generation.ts
+
 import { generation } from "../mod.ts";
 
 generation({
@@ -7,10 +9,23 @@ generation({
     template: "./demo/tpl/fruits",
   },
   replacements: [{
-    before: "__substitution__",
-    after: "cute",
+    before: "fruits",
+    after: "apple",
   }, {
-    before: "__Substitution__",
-    after: "Cute",
+    before: "Fruits",
+    after: "Apple",
   }],
 });
+
+// どのテンプレートを使いますか？
+// What template will you use?
+
+// どこに作りますか？
+// Where do you want to make it?
+//
+
+// rm -rf output && deno run --allow-run --allow-read --allow-write --allow-env --allow-sys ./demo/generation.ts
+// tree output/ && find ./output -name "*.html" | xargs cat
+// find ./output -name "*.html" | xargs cat
+
+// myTpl が邪魔
