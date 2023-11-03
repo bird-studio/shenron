@@ -10,9 +10,3 @@ export const generation: Generation = async (p) => {
   await commands.replaceContents(p);
   await commands.renameDir(p);
 };
-
-// どのテンプレートを使いますか？
-// What template will you use?
-
-// どこに作りますか？
-// Where do you want to make it?
