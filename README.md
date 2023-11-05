@@ -101,3 +101,7 @@ await generation({
   }],
 });
 ```
+
+## Notes
+
+Please use alphabetic letters for `replacements` as much as possible.
