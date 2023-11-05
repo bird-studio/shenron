@@ -6,7 +6,8 @@ export const duplicateTpl = (p: {
     template: string;
   };
 }) =>
-  zx`mkdir -p ${p.path.output} && cp -r ${p.path.template} ${p.path.output}`;
+  zx`mkdir -p ${p.path.output} && cp -r ${p.path.template} ${p.path.output}`
+    .quiet();
 
 export const replaceContents = async (p: {
   path: {
@@ -18,7 +19,8 @@ export const replaceContents = async (p: {
   }>;
 }) => {
   for (const v of p.replacements) {
-    await zx`find ${p.path.output} -type f | LC_ALL=C xargs sed -i "" "s/${v.before}/${v.after}/g"`;
+    await zx`find ${p.path.output} -type f | LC_ALL=C xargs sed -i "" "s/${v.before}/${v.after}/g"`
+      .quiet();
   }
   return Promise.resolve();
 };
@@ -33,7 +35,8 @@ export const renameDir = async (p: {
   }>;
 }) => {
   for (const v of p.replacements) {
-    await zx`find ${p.path.output} -depth -name '*${v.before}*' -execdir sh -c 'mv -n "$1" $(echo "$1" | sed "s/${v.before}/${v.after}/;")' -- {} \\;`;
+    await zx`find ${p.path.output} -depth -name '*${v.before}*' -execdir sh -c 'mv -n "$1" $(echo "$1" | sed "s/${v.before}/${v.after}/;")' -- {} \\;`
+      .quiet();
   }
   return Promise.resolve();
 };
