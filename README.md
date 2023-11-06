@@ -50,9 +50,9 @@ Create a file like this one.
 `./generation.ts`
 
 ```ts
-import { generation } from "https://deno.land/x/shenron/mod.ts";
+import { generate } from "https://deno.land/x/shenron/mod.ts";
 
-await generation({
+await generate({
   path: {
     output: "./output",
     template: "./tpl/fruits",
@@ -88,9 +88,9 @@ Another fruit can be used.
 `after: "orange",`
 
 ```ts
-import { generation } from "https://deno.land/x/shenron/mod.ts";
+import { generate } from "https://deno.land/x/shenron/mod.ts";
 
-await generation({
+await generate({
   path: {
     output: "./output",
     template: "./tpl/fruits",
