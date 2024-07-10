@@ -17,7 +17,19 @@ const issueQ = () =>
     options: o.issues,
   });
 
-const commitMessageTemplate = `{{gitmoji}}: {{summary}} Close #{{issue}}
+const scopeQ = () =>
+  hoipoiCapsule.userInterface.prompt.Select.prompt({
+    message: "Select scope.",
+    search: true,
+    options: [
+      { name: "_", value: "_" },
+      { name: "external_interface", value: "external_interface" },
+      { name: "use_case", value: "use_case" },
+    ],
+  });
+
+const commitMessageTemplate =
+  `{{gitmoji}}({{scope}}): {{summary}} Close #{{issue}}
 
 {{body}}`;
 
@@ -27,6 +39,10 @@ hoipoiCapsule.useCase.fillInCommitMessage.run({
     {
       target: "gitmoji",
       q: gitmojiQ,
+    },
+    {
+      target: "scope",
+      q: scopeQ,
     },
     {
       target: "summary",
