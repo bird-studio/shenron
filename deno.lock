@@ -42,7 +42,8 @@
     }
   },
   "redirects": {
-    "https://deno.land/x/hoipoi_capsule/mod.ts": "https://deno.land/x/hoipoi_capsule@v3.0.2/mod.ts"
+    "https://deno.land/x/hoipoi_capsule/mod.ts": "https://deno.land/x/hoipoi_capsule@v3.0.2/mod.ts",
+    "https://deno.land/x/shenron/mod.ts": "https://deno.land/x/shenron@v1.1.0/mod.ts"
   },
   "remote": {
     "https://deno.land/std@0.170.0/_util/asserts.ts": "d0844e9b62510f89ce1f9878b046f6a57bf88f208a10304aab50efcb48365272",
@@ -145,6 +146,10 @@
     "https://deno.land/x/hoipoi_capsule@v3.0.2/src/use_case/fill_in_commit_message/util.ts": "8b9f4af898b5d2d975aace5f142e32d944e8af4fde94fd5c81129545708382f9",
     "https://deno.land/x/hoipoi_capsule@v3.0.2/src/user_interface/prompt.ts": "64a3fed8a60e8c28ed839b7a682b8bcfc66a13b6e1f300c98107240ac31e8e4a",
     "https://deno.land/x/hoipoi_capsule@v3.0.2/src/util/error.ts": "8a31de6a31bd81625dab758394c4295ed593bcd3807bde18854f70f3a53fd543",
+    "https://deno.land/x/shenron@v1.1.0/deps.ts": "774ad81b6746f3744806e08b9f63c7766af40cabadcb1262b73ffb33e6781735",
+    "https://deno.land/x/shenron@v1.1.0/mod.ts": "1d441e8bff0d1820e896529847c078cfb0cd7eb4a5795a4c03ff903df314a2fc",
+    "https://deno.land/x/shenron@v1.1.0/src/external_interface/commands.ts": "e44a94fb0a2a39a5a85c4639973bce77a9e9d27e0648b3f15afcabbc47c4e9ce",
+    "https://deno.land/x/shenron@v1.1.0/src/use_case/generation.ts": "22527754e5ba0f30ac30192bc362c0a91220776c5c85dc84b4324a52fed57373",
     "https://deno.land/x/tty@0.1.4/ansi_regex.ts": "1d3b0c7289164f93c9ebafe3bbd05a723568a250cc5c29c0cc922ff55af9a238",
     "https://deno.land/x/tty@0.1.4/combining.ts": "a615e9479d8bc901e3a727e5cae83c0aa1d4ca1e75fa040861d9905d16b30ffc",
     "https://deno.land/x/tty@0.1.4/is_interactive.ts": "37080d92399827215e60a57d97013aefbdbc038e7a5d2346abd298a7010525e6",

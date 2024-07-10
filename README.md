@@ -56,8 +56,6 @@ Create a file like this one.
 `./generation.ts`
 
 ```ts
-import { generate } from "https://deno.land/x/shenron/mod.ts";
-
 generate({
   dir: {
     output: "./output",
