@@ -36,6 +36,12 @@ export const <%= h.changeCase.pascal(name) %>: React.FC<Props> = ({}) => {
 
 ## Use
 
+### Step.0
+
+```bash
+brew install f2
+```
+
 ### Step.1
 
 Create a file like this one.
@@ -49,17 +55,20 @@ Create a file like this one.
 
 `./generation.ts`
 
-```ts
+```
 import { generate } from "https://deno.land/x/shenron/mod.ts";
 
-await generate({
-  path: {
+generate({
+  dir: {
     output: "./output",
-    template: "./tpl/fruits",
+    template: "./demo/tpl/fruits",
   },
   replacements: [{
     before: "fruits",
     after: "apple",
+  }, {
+    before: "Fruits",
+    after: "Apple",
   }],
 });
 ```
@@ -79,27 +88,6 @@ deno run --allow-run --allow-read --allow-write --allow-env --allow-sys ./genera
 ```html
 <p> This is red apple </p>
 <p> This is green apple </p>
-```
-
-### furthermore
-
-Another fruit can be used.
-
-`after: "orange",`
-
-```ts
-import { generate } from "https://deno.land/x/shenron/mod.ts";
-
-await generate({
-  path: {
-    output: "./output",
-    template: "./tpl/fruits",
-  },
-  replacements: [{
-    before: "fruits",
-    after: "orange", // Change
-  }],
-});
 ```
 
 ## Notes

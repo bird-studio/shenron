@@ -1,1 +1,1 @@
-export { $ } from "../../deps.ts";
+export { zx } from "../../deps.ts";

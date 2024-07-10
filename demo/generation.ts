@@ -2,7 +2,7 @@
 import { generate } from "../mod.ts";
 
 generate({
-  path: {
+  dir: {
     output: "./output",
     template: "./demo/tpl/fruits",
   },
