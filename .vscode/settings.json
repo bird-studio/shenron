@@ -3,7 +3,4 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "denoland.vscode-deno",
   "deno.config": "./deno.jsonc",
-  "cSpell.words": [
-    "hoipoi"
-  ]
 }

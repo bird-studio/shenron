@@ -1,1 +1,2 @@
-export { $ as zx } from "npm:zx";
+import * as zx from "npm:zx";
+export { zx };

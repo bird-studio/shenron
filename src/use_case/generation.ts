@@ -1,12 +1,21 @@
 import * as commands from "../external_interface/commands.ts";
 
+type GenerateP =
+  & Parameters<typeof commands.prepare>[0]
+  & Parameters<typeof commands.replace>[0]
+  & Parameters<typeof commands.output>[0];
+
 type Generate = (
-  p:
-    & Parameters<typeof commands.duplicateTpl>[0]
-    & Parameters<typeof commands.replaceContents>[0],
+  p: GenerateP,
 ) => Promise<void>;
 export const generate: Generate = async (p) => {
-  await commands.duplicateTpl(p);
-  await commands.replaceContents(p);
-  await commands.renameDir(p);
+  const current = Deno.cwd();
+
+  await commands.prepare(p);
+  await commands.replace(p);
+  await commands.output({
+    dir: {
+      output: `${current}/${p.dir.output}`,
+    },
+  });
 };

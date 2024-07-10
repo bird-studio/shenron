@@ -1,42 +1,38 @@
 import { zx } from "../../deps.ts";
 
-export const duplicateTpl = (p: {
-  path: {
-    output: string;
+export const prepare = (p: {
+  dir: {
     template: string;
   };
-}) =>
-  zx`mkdir -p ${p.path.output} && cp -r ${p.path.template} ${p.path.output}`
-    .quiet();
-
-export const replaceContents = async (p: {
-  path: {
-    output: string;
-  };
-  replacements: Array<{
-    before: string;
-    after: string;
-  }>;
 }) => {
-  for (const v of p.replacements) {
-    await zx`find ${p.path.output} -type f | LC_ALL=C xargs sed -i "" "s/${v.before}/${v.after}/g"`
-      .quiet();
-  }
-  return Promise.resolve();
+  const workingDir = zx.tmpdir();
+  zx.$.sync`cp -r ${p.dir.template} ${workingDir}`;
+  zx.cd(workingDir);
 };
 
-export const renameDir = async (p: {
-  path: {
+type Replacement = {
+  before: string;
+  after: string;
+};
+export const replace = (p: {
+  replacements: [Replacement, ...Replacement[]];
+}) => {
+  p.replacements.forEach((v) => {
+    zx.$
+      .sync`f2 -f '${v.before}' -r '${v.after}' --recursive --include-dir --exec`;
+
+    p.replacements.forEach((v) =>
+      zx.$
+        .sync`find ./ -type f | LC_ALL=C xargs sed -i "" "s/${v.before}/${v.after}/g"`
+    );
+  });
+};
+
+export const output = (p: {
+  dir: {
     output: string;
   };
-  replacements: Array<{
-    before: string;
-    after: string;
-  }>;
 }) => {
-  for (const v of p.replacements) {
-    await zx`find ${p.path.output} -depth -name '*${v.before}*' -execdir sh -c 'mv -n "$1" $(echo "$1" | sed "s/${v.before}/${v.after}/;")' -- {} \\;`
-      .quiet();
-  }
-  return Promise.resolve();
+  zx.$.sync`mkdir -p ${p.dir.output}`;
+  zx.$.sync`cp -r . ${p.dir.output}`;
 };
