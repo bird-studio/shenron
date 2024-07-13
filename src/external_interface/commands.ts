@@ -19,7 +19,7 @@ export const replace = (p: {
 }) => {
   p.replacements.forEach((v) => {
     zx.$
-      .sync`f2 -f '${v.before}' -r '${v.after}' --recursive --include-dir --exec`;
+      .sync`f2 -f '${v.before}' -r '${v.after}' --recursive --include-dir --exec --hidden`;
 
     p.replacements.forEach((v) =>
       zx.$
