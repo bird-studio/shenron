@@ -3,8 +3,8 @@ import { generate } from "../mod.ts";
 
 generate({
   dir: {
-    output: "./output",
-    template: "./demo/tpl/fruits",
+    output: `${Deno.cwd()}/output`,
+    template: `${Deno.cwd()}/demo/tpl/fruits`,
   },
   replacements: [{
     before: "fruits",
